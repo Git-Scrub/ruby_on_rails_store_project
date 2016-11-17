@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  get 'authentication/login'
+  root to: 'store#home'
+  #get 'sessions/new'
 
-  get 'authentication/register'
+  get 'sessions/create'
+
+  get 'sessions/destroy'
 
   get 'store/home'
 
@@ -10,6 +13,12 @@ Rails.application.routes.draw do
   get 'store/about_us'
 
   get 'store/FAQ'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  resources :users
+  
+  controller :sessions do
+    get 'login' => :new
+	post 'login' => :create
+	delete 'logout' => :destroy
+  end
 end

@@ -1,0 +1,16 @@
+/*
+ * The styling here will be global across all apps. Use carefully
+ */
+ /* Import bootstrap */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ 
+#navigationLinks ul .active a
+{
+  color: red;
+}
+
+#navigationLinks ul li
+{
+  display: inline;
+}

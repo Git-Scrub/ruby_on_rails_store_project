@@ -4,11 +4,20 @@
     <title>RubyOnRailsStore</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'default', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'default', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <nav id='navigationLinks'>
+	  <ul>
+		<li class="<%= 'active' if current_page?(home_url) %>"><%= link_to 'Home', home_path %></li>
+		<li class="<%= 'active' if current_page?(contact_url) %>"> <%= link_to 'Contact us', contact_path%></li>
+		<li class="<%= 'active' if current_page?(faq_url) %>"> <%= link_to 'FAQs', faq_path %></li>
+		<li class="<%= 'active' if current_page?(about_url) %>"> <%= link_to 'About', about_path %></li>
+		<li class="<%= 'active' if current_page?(register_url) %>"> <%= link_to 'Register', register_path %></li>
+	  </ul>	  
+	</nav>
     <%= yield %>
   </body>
 </html>
